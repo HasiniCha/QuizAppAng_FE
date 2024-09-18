@@ -1,0 +1,46 @@
+<!-- Display the list of questions and allow editing -->
+<div *ngFor="let question of data; let i = index">
+    <div *ngIf="editIndex === i">
+      <!-- Edit form for a question -->
+      <input [(ngModel)]="editedQuestion.question" placeholder="Edit Question" />
+      <input [(ngModel)]="editedQuestion.optionA" placeholder="Edit Option A" />
+      <input [(ngModel)]="editedQuestion.optionB" placeholder="Edit Option B" />
+      <input [(ngModel)]="editedQuestion.optionC" placeholder="Edit Option C" />
+      <input [(ngModel)]="editedQuestion.optionD" placeholder="Edit Option D" />
+      <input [(ngModel)]="editedQuestion.answer" placeholder="Edit Answer" />
+      <textarea [(ngModel)]="editedQuestion.explanation" placeholder="Edit Explanation"></textarea>
+      <button (click)="saveQuestion()">Save</button>
+      <button (click)="cancelEdit()">Cancel</button>
+    </div>
+  
+    <div *ngIf="editIndex !== i">
+      <!-- Display the question -->
+      <h3>{{ question.question }}</h3>
+      <p>Option A: {{ question.optionA }}</p>
+      <p>Option B: {{ question.optionB }}</p>
+      <p>Option C: {{ question.optionC }}</p>
+      <p>Option D: {{ question.optionD }}</p>
+      <p>Answer: {{ question.answer }}</p>
+      <p>Explanation: {{ question.explanation }}</p>
+      <button (click)="editQuestion(i)">Edit</button>
+    </div>
+  </div>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <input type="text" name="question" ngModel placeholder="Enter Question" required>
+    <input type="text" name="optionA" ngModel placeholder="Enter Option A" required>
+    <input type="text" name="optionB" ngModel placeholder="Enter Option B" required>
+    <input type="text" name="optionC" ngModel placeholder="Enter Option C" required>
+    <input type="text" name="optionD" ngModel placeholder="Enter Option D" required>
+    <input type="text" name="answer" ngModel placeholder="Enter Correct Answer (A, B, C, D)" required>
+    <textarea name="explanation" ngModel placeholder="Enter Explanation"></textarea>
+    <button type="submit">Add Question</button>
+  </form>
+  
+
+  <div *ngIf="errors.length > 0">
+    <ul>
+      <li *ngFor="let error of errors">{{ error }}</li>
+    </ul>
+  </div>
+  

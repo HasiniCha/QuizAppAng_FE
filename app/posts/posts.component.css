@@ -1,0 +1,91 @@
+body {
+  background-color: #f5f5f5;
+  color: #161414;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.form-container {
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  color: #1a1818;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+  color: #333333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #6200ea;
+  outline: none;
+  background-color: #ffffff;
+}
+
+button {
+  padding: 12px 25px;
+  margin-top: 15px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  background-color: rgb(92, 0, 179)a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.errors {
+  color: red;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+    margin: 20px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000
+}

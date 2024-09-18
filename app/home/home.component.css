@@ -1,0 +1,124 @@
+/* Dark-themed background */
+*{
+  background-color: #f5f5f5;
+  margin: 0;
+}
+body {
+    background-color: #ffffff;
+    color:#424242;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+  }
+  
+  /* Container to center content */
+  .home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+  }
+  
+  /* Large title styling */
+  .home-title {
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    color: #424242;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Start button styling */
+  .start-button {
+   
+  background-color: #36A9AE;
+  background-image: linear-gradient(#3b309e, #247fff);
+  border: 1px solid #2A8387;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 17px;
+  line-height: 100%;
+  margin: 10px;
+  outline: 0;
+  padding: 11px 15px 12px;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 10%;
+}  
+
+.start-button_2 {
+   
+  background-color: #064983;
+  background-image: linear-gradient(#188516, #1bc068);
+  border: 1px solid #2A8387;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 17px;
+  line-height: 100%;
+  margin: 10px;
+  outline: 0;
+  padding: 11px 15px 12px;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 10%;
+}
+
+.start-button:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset, rgba(0, 0, 0, 0.4) 0 9px 9px;
+  text-decoration: none;
+  transition-duration: .15s, .15s;
+}
+
+.start-button:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.start-button:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.start-button:disabled:active {
+  pointer-events: none;
+}
+
+.start-button:disabled:hover {
+  box-shadow: none;
+}
+  
+  
+  /* Button hover effect */
+  .start-button:hover {
+    background-color: #3d0d1c;
+    color: #ffffff;
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .home-title {
+      font-size: 2.5rem;
+    }
+  
+    .start-button {
+      font-size: 1.2rem;
+      padding: 0.8rem 1.5rem;
+    }
+  }
+ 

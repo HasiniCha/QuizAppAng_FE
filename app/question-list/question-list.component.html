@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="header">
+    <h1 class="home-title">Quiz App</h1>
+    <button id="create" class="create-button" (click)="openCreatePopup()">Create New List</button>
+  </div>
+
+  <!-- Card Container -->
+  <div class="card-container" *ngFor="let item of data" (click)="openOptionsPopup(item)">
+    <div class="card">
+      <!-- Delete Button with Confirmation -->
+      <button id="delete" (click)="openDeleteConfirmation(item, $event)">Delete</button>
+      <div class="card-content">
+        <h2 class="card-name">{{ item.name }}</h2>
+        <p class="card-description">Add questions</p>
+        <p class="card-category">Practice</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create List Popup -->
+  <div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+      <h3>Create a New List</h3>
+      <input [(ngModel)]="newListName" placeholder="Enter list name" />
+      <p *ngIf="isInvalidInput" class="error-message">Name is required</p>
+     
+      <button (click)="saveList()" [disabled]="!newListName.trim()">Save</button>
+      <button (click)="closePopup()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Options Popup -->
+  <div class="popup" *ngIf="isOptionsPopupVisible">
+    <div class="popup-content">
+      <h3>Options for {{ selectedList.name }}</h3>
+      <button (click)="navigateToAddQuestion()">Add a Question</button>
+      <button (click)="navigateToPractice()">Practice▶️</button>
+      <button (click)="closeOptionsPopup()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Delete Confirmation Popup -->
+  <div class="popup" *ngIf="isDeleteConfirmationVisible">
+    <div class="popup-content">
+      <h3>Are you sure you want to delete the list "{{ selectedList?.name }}"?</h3>
+      <p>This action cannot be undone.All the questions under this also will be deleted</p>
+      <button (click)="deleteList(selectedList.id)">Yes, Delete</button>
+      <button (click)="closeDeleteConfirmation()">Cancel</button>
+    </div>
+  </div>
+</div>

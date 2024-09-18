@@ -1,0 +1,18 @@
+<div class="questions-container">
+    <div *ngFor="let question of questions" class="question-item">
+      <div class="question-text">
+        <strong>Question:</strong> {{ question.text }}
+      </div>
+      <div class="answer-text">
+        <strong></strong> {{ question.optionA }}
+      </div>
+      <div class="answer-text">
+        <strong>Answer:</strong> {{ question.answer }}
+      </div>
+      <div class="actions">
+        <button (click)="updateQuestion(question.id)" class="update-button">Update</button>
+        <button (click)="deleteQuestion(question.id)" class="delete-button">Delete</button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,52 @@
+<div *ngIf="!createnew">
+  <div class="quiz-container">
+    <button class="nav-button end-button" (click)="endQuiz(data[currentQuestionIndex]?.listId)">
+      End Quiz
+    </button>
+    <div class="question-container">
+      <div *ngIf="data.length > 0" class="question-header">
+        <button class="delete-btn" (click)="deleteQue(data[currentQuestionIndex]?.id)">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+        <button class="update-btn" (click)="updateQue(data[currentQuestionIndex]?.id)">
+          <i class="fas fa-edit"></i>
+        </button>
+        <h2 class="question-text">{{ data[currentQuestionIndex]?.question }}</h2>
+      </div>
+
+      <div *ngIf="data.length > 0" class="options-container">
+        <div *ngFor="let optionKey of optionKeys" class="option-text-container">
+          <span class="option-text"
+            [ngClass]="{
+              'clicked-correct': clickedOptionKey === optionKey && isCorrect(optionKey),
+              'clicked-incorrect': clickedOptionKey === optionKey && !isCorrect(optionKey),
+              'disabled-option': isAnswerSelected
+            }"
+            (click)="!isAnswerSelected && selectAnswer(optionKey)">
+            {{ data[currentQuestionIndex]?.['option' + optionKey] }}
+          </span>
+        </div>
+      </div>
+
+      <!-- Show explanation if answer is selected -->
+      <div *ngIf="isAnswerSelected" class="explanation-container">
+        <p class="explanation-text">Explanation: {{ data[currentQuestionIndex]?.explanation }}</p>
+      </div>
+    </div>
+
+    <div class="navigation-buttons">
+      <button class="nav-button" (click)="prevQuestion()" [disabled]="currentQuestionIndex === 0">
+        &#9664; Prev
+      </button>
+      <button class="nav-button" (click)="nextQuestion()" [disabled]="!isAnswerSelected">
+        Next &#9654;
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="createnew">
+  <div class="question-container">
+    <p>No questions under this list. Create a new question.</p>
+    <button (click)="Post()">Create New Question</button>
+  </div>
+</div>

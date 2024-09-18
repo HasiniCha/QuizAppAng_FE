@@ -1,0 +1,48 @@
+<body><div class="form-container">
+    <form #addQuestionForm="ngForm" (ngSubmit)="onSubmit(addQuestionForm)">
+      <h2>Add a New Question</h2>
+   
+      
+      <div class="form-group">
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question" ngModel required>
+      </div>
+      
+      <div class="form-group">
+        <label for="optionA">Option A:</label>
+        <input type="text" id="optionA" name="optionA" ngModel required>
+      </div>
+      
+      <div class="form-group">
+        <label for="optionB">Option B:</label>
+        <input type="text" id="optionB" name="optionB" ngModel required>
+      </div>
+      
+      <div class="form-group">
+        <label for="optionC">Option C:</label>
+        <input type="text" id="optionC" name="optionC" ngModel required >
+      </div>
+      
+      <div class="form-group">
+        <label for="optionD">Option D:</label>
+        <input type="text" id="optionD" name="optionD" ngModel required>
+      </div>
+      
+      <div class="form-group">
+        <label for="answer">Answer:</label>
+        <input type="text" id="answer" name="answer" ngModel required>
+      </div>
+      <div class="form-group">
+        <label for="explanation">Explanation to the answer:</label>
+        <input type="text" id="explanation" name="explanation" ngModel required>
+      </div>
+      
+      <button type="submit"       [disabled]="validation">Add Question</button>
+      <div *ngIf="errors.length > 0" class="errors">
+        <p *ngFor="let error of errors">{{ error }}</p>
+      </div>
+    </form>
+  </div>
+  <div id="toast" class="toast" *ngIf="isToastVisible">{{ toastMessage }}</div>
+
+</body>
